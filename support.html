@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day. — Support</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: #F7F4EE;
+      color: #111;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    .wordmark {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 56px;
+      display: block;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span {
+      font-style: italic;
+      color: #C2714F;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    .contact-card {
+      background: #fff;
+      border: 0.5px solid #E8E4DC;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 64px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover { background: #333; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #aaa;
+      margin-bottom: 12px;
+      margin-top: 48px;
+    }
+
+    .section-label:first-of-type { margin-top: 0; }
+
+    .faq-group {
+      border-top: 0.5px solid #E8E4DC;
+      margin-bottom: 8px;
+    }
+
+    .faq-item {
+      border-bottom: 0.5px solid #E8E4DC;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      text-align: left;
+    }
+
+    .faq-question span {
+      font-size: 15px;
+      color: #111;
+      line-height: 1.45;
+      flex: 1;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: transform 0.2s;
+      color: #bbb;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .faq-chevron.open { transform: rotate(180deg); }
+
+    .faq-answer {
+      display: none;
+      padding-bottom: 16px;
+    }
+
+    .faq-answer.open { display: block; }
+
+    .faq-answer p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+
+    .faq-answer p:last-child { margin-bottom: 0; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #E8E4DC;
+      margin: 56px 0;
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .footer a {
+      color: #C2714F;
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <a class="wordmark" href="#">Day.</a>
+
+  <div class="hero">
+    <h1>We're here <span>to help.</span></h1>
+    <p>Support for Day. — your calm daily companion for tasks, notes, and voice.</p>
+  </div>
+
+  <div class="contact-card">
+    <p>Have a question not covered below, found a bug, or want to share feedback? Send us a message and we'll get back to you.</p>
+    <a href="mailto:featherstudio@proton.me?subject=Day.%20Support">Email support</a>
+  </div>
+
+  <!-- TODAY -->
+  <p class="section-label">Today</p>
+  <div class="faq-group">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What is the Today tab?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Today is a read-only overview of your day. It shows a hero card with your current or next upcoming task, followed by your task list for today. Yesterday's incomplete tasks appear below, and tomorrow's tasks appear after 18:00. You can't create tasks directly from this tab — it's designed for glancing at, not managing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What is the hero card?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>The hero card always shows your most relevant timed task.</p>
+        <p>• If a task is currently in progress, it shows that task. If there's less than 30 minutes left, a countdown appears.</p>
+        <p>• If a task starts within 15 minutes, the card switches to show the next task.</p>
+        <p>• If nothing is happening, the card shows a time-of-day message.</p>
+        <p>The "STARTS IN X MIN" label turns terracotta when you're 15 minutes or less away.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Can I complete tasks from the Today tab?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Swipe right on any task row to complete it. The row collapses after a short animation. Completed tasks are hidden from the list.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What does the Yesterday section show?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Any tasks from the previous day that were not completed. They appear muted to distinguish them from today's tasks. Tap any of them to open the task and reschedule or complete it.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>When does Tomorrow appear?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>The Tomorrow section appears after 18:00 so you can get a preview of what's ahead before the day ends.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TASKS -->
+  <p class="section-label">Tasks</p>
+  <div class="faq-group">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I create a task?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tap the + button at the bottom right of the Tasks tab or the Calendar tab. A sheet slides up from the bottom. Type your task name, then optionally add a date, time, area, repeat schedule, and mark it as urgent.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How does the time picker work?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tapping TIME in the task sheet opens a two-step picker:</p>
+        <p>1. Choose a start time preset — Morning, Noon, Afternoon, Evening, or Night.</p>
+        <p>2. Choose a duration — 30m, 1h, 1h 30m, or 2h. The end time is calculated automatically.</p>
+        <p>If you want an exact time, tap "+ Exact time" to use the manual stepper with − and + controls for hour and minute in 24-hour format.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do repeat tasks work?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Set a repeat rule when creating or editing a task: Daily, Weekdays, Weekly, or Custom (where you pick specific days of the week).</p>
+        <p>Day. generates upcoming instances automatically in a rolling 7-day window. Each instance is independent — completing or editing one doesn't affect the others unless you choose to apply changes to all instances.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I edit a task?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tap any task from the Tasks, Today, or Calendar tab to open the task detail page. All fields are editable inline — title, date, time, area, repeat, notes, and checklist. Changes save automatically.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What does urgent mean?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Marking a task as urgent adds a terracotta "Urgent" pill to the task row and detail page. It's a visual signal — there's no separate urgent queue. Use it to flag things that need attention today.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I delete a task?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Open the task detail page and tap the trash icon in the top right. If the task is part of a repeat series, you'll be asked whether to delete just this instance or all future instances.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do notifications work?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>When you set a time for a task, a NOTIFY field appears. You can choose to be notified at the time of the task, 15 minutes before, or 30 minutes before.</p>
+        <p>Day. will ask for notification permission the first time you set a reminder. The notification toggle in your profile will turn on automatically once permission is granted.</p>
+        <p>If you edit a task's time, the existing notification is cleared and you'll need to set a new one.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Can I filter tasks by area?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. On the Tasks tab, area filter pills appear at the top. Tap an area to show only tasks assigned to it. Tap again to clear the filter.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What are sparked tasks?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>When you're writing a Field Note, you can select any text and tap "Make task" to turn it into a task. These tasks are labelled "sparked" and are linked back to the note they came from.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FIELD NOTES -->
+  <p class="section-label">Field Notes</p>
+  <div class="faq-group">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What are Field Notes?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Field Notes is your space for long-form writing and voice capture. Think of it as a journal and a scratchpad combined — a place to think out loud, capture ideas, or record a voice memo. It's intentionally open-ended.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I create a new note?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tap the pen icon in the bottom right of the Field Notes tab. A new blank note opens immediately.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I record a voice note?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Press and hold the pen icon for about half a second. A recording overlay appears — a dark pill at the bottom with a live waveform and a timer.</p>
+        <p>• Tap Stop to finish recording. The audio is transcribed and a new note is created with the transcript as the body.</p>
+        <p>• Tap Cancel to discard the recording. No note is created.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Can I record inside an existing note?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Open any note and tap the mic icon in the top right. When you stop, the transcript is appended to your existing note body and the audio is saved to that note.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How does transcription work?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Transcription runs on-device using Apple's built-in speech recognition. After you stop recording, the audio is processed almost instantly. Because it uses native iOS speech recognition, accuracy depends on your device and ambient conditions. The transcript is fully editable.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What languages does transcription support?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Transcription uses your device's preferred language setting. Support and accuracy vary by language — this is determined by iOS, not Day.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I play back a voice recording?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Open the note. Audio recordings appear below the stats row. Each recording has a play/pause button, a waveform seekbar, and a duration display. Tap anywhere on the waveform to jump to that point, or drag to scrub through.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What do the stats mean?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>The stats row below the title shows: word count, estimated read time (based on ~200 words per minute), number of voice recordings attached, and the area assigned to the note.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Can I search my notes?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. A search bar is at the top of the Field Notes tab. Tap it and type to filter notes by their content. Tap × to clear the search. You can also filter by area using the filter icon next to the search bar.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CALENDAR -->
+  <p class="section-label">Calendar</p>
+  <div class="faq-group">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What does the Calendar tab show?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>A monthly calendar grid with a day panel below. Days that have tasks show a small terracotta dot. Tap any day to see its tasks in the panel below.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I navigate months?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tap the left and right arrows, or swipe left and right on the calendar grid. If you've navigated away from the current month, a Today button appears to jump back.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Can I create tasks from the Calendar tab?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Tap the + button while viewing a date to open the task sheet with that date pre-filled.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Do repeat tasks show on the calendar?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Repeat task instances are generated up to 365 days ahead and show as dots on their scheduled dates.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AREAS -->
+  <p class="section-label">Areas</p>
+  <div class="faq-group">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What are areas?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Areas are personal organisational contexts — things like Work, Personal, Health, or whatever makes sense for you. You can assign one area to each task and each field note. They're colour-coded and appear as small dots throughout the app.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I create or edit areas?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Go to Profile → Areas. Tap an existing area to edit its name or colour. Tap "New area" at the bottom to create one.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>What happens if I delete an area?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Day. will tell you how many tasks and notes are using that area before you confirm. If you proceed, the area is removed from all of them — they become unassigned. This cannot be undone.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROFILE & SETTINGS -->
+  <p class="section-label">Profile & Settings</p>
+  <div class="faq-group">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I change the app theme?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>In Profile, under Appearance, choose Light, Dark, or Auto. Auto follows your iPhone's system setting.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I export my data?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>Day. offers two export options in Profile:</p>
+        <p>• Export Data — a lightweight JSON file with your tasks and field notes.</p>
+        <p>• Export with Audio — a zip file with your tasks, field notes, and all voice recordings. Use this for a full backup.</p>
+        <p>Both share via the iOS share sheet — save to Files, AirDrop to your Mac, or anywhere else.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>How do I import data?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>In Profile, tap Import and select either a .json or .zip backup file previously exported from Day. Your tasks, notes, and audio recordings are restored. Existing entries are not deleted.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>Is my data backed up automatically?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>All data is stored locally on your device. There is no automatic cloud backup. Use Export with Audio regularly to back everything up — we recommend saving it to iCloud Drive or your Mac so it survives a reinstall or device change.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span>I lost my data after reinstalling. Can I recover it?</span>
+        <span class="faq-chevron">›</span>
+      </button>
+      <div class="faq-answer">
+        <p>If you have a .json or .zip export saved, you can restore it via Profile → Import. If no backup exists, unfortunately the data cannot be recovered — local storage is cleared when an app is deleted. We recommend exporting regularly.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <div class="footer">
+    <p>Still need help? Email us at <a href="mailto:featherstudio@proton.me">featherstudio@proton.me</a></p>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Use</a>
+    </div>
+    <p style="margin-top: 16px;">© 2026 Feather Studio</p>
+  </div>
+
+</div>
+
+<script>
+  function toggle(btn) {
+    const answer = btn.nextElementSibling;
+    const chevron = btn.querySelector('.faq-chevron');
+    const isOpen = answer.classList.contains('open');
+    answer.classList.toggle('open', !isOpen);
+    chevron.classList.toggle('open', !isOpen);
+  }
+</script>
+
+</body>
+</html>
